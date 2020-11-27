@@ -1,0 +1,29 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+    <script src="script.js" defer></script>
+    <script src="utility.js" defer></script>
+</head>
+<body class="container">
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+    <main>
+        <div class="jumbotron">
+            <h3>Welcome</h3>
+            <label>Enter the Meeting Id:</label>
+            <input type="text" id="mid" ><br>
+            <div class="wrapper">
+                <button class="btn-copy" onclick="joinmeeting()">Join Meeting</button>
+              </div>
+
+        </div>
+
+    </main>
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+</body>
+</html>

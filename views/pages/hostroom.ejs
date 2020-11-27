@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+        <script defer src="https://unpkg.com/peerjs@1.2.0/dist/peerjs.min.js"></script>
+        <script src="/socket.io/socket.io.js" defer></script>
+        <script src="script.js" defer></script>
+        <script src="utility.js" defer></script>
+        <style>
+          #video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 300px);
+            grid-auto-rows: 300px;
+          }
+          
+          video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+          .wrapper{
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            margin-top:10px;
+          }
+          .btn-copy{
+            background-color: #38AFDD;
+            border: transparent;
+            border-bottom: 2px solid #0086B7;
+            border-radius: 2px;
+            padding: 10px;
+            min-width: 100px;
+            color: #fff;
+          }
+          .btn-copy:hover, .btn-copy:focus{
+            background-color: #48A1C1;
+            border-bottom: 2px solid #38AFDD;
+            /*transition cross browser*/
+            transition: all .3s ease-in;
+            -webkit-transition: all .3s ease-in;
+            -moz-transition:all .3s ease-in;
+            -o-transition: all .3s ease-in;
+         }
+        </style>
+</head>
+<body class="container">
+<header>
+    <%- include('../partials/header'); %>
+</header>
+<main>
+  <div class="row">
+      <div class="col-sm-8">
+          <div class="jumbotron">
+              <h3>Video chat made easy!</h3>
+          </div>
+          <div id="video-grid" style="border: solid 1px"></div>
+          <div class="wrapper">
+            <input type="hidden" id="input-url" value="Copied!">
+            <button class="btn-copy" onclick="getMeetingId();">Get Meeting Id</button>
+          </div>
+      </div>
+  </div>
+</main>
+<footer>
+    <%- include('../partials/footer'); %>
+</footer>
+</body>
+</html>

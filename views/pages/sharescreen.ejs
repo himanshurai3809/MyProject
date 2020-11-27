@@ -1,0 +1,59 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+    <!-- <script src="script.js" defer></script> -->
+    <script defer src="https://unpkg.com/peerjs@1.2.0/dist/peerjs.min.js"></script>
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script src="utility.js" defer></script>
+    <script src="screencapture.js" defer></script>
+    <script> 
+        var displayMediaOptions = {
+            video: {
+                cursor: "always"
+            },
+            audio: false
+        };
+    </script>
+    <style>
+        #screenvideo {
+            border: 1px solid #999;
+            width: 640px;
+            height: 480px;
+            max-width: 700px;
+        }
+    </style>
+</head>
+<body class="container" >
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+    <main>
+        <div class="jumbotron">
+            <h3>Welcome</h3>
+            <label>Enter the Meeting Id:</label>
+            <input type="text" id="mid" ><br>
+            <div class="wrapper">
+                <button class="btn-copy" onclick="joinmeeting()">Join Meeting</button>
+              </div>
+
+        </div>
+       
+        <table>
+        <tr><div id="screen-sharing" style="width:640px;height:480px;border: solid 1px">
+                <video id="screenvideo" autoplay></video>
+            </div>  
+        </tr>
+        <tr>
+            <input class="btn-copy" type="button" onclick="startCapture(displayMediaOptions)" value="Share Screen"/>
+            <input id ="stop" class="btn-copy" type="button" value="Stop Sharing"/>    
+        </tr>
+        </table>
+
+    </main>
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+</body>
+</html>
